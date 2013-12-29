@@ -15,6 +15,7 @@ class Application extends Sprite {
 	private var widthX:Float;
 	private var heightX:Float;
 	private var sv:ScrollView;
+	private var imgView:ImagePresenter;
 
 	public function new (canvasWidth:Float,canvasHeight:Float) {
 		
@@ -32,18 +33,6 @@ class Application extends Sprite {
 		this.sv = new ScrollView();
 		this.sv.setSize(300,400);
 		this.sv.setScrollSpeed(350);
-		//this.addChild(this.sv);
-		/*
-		var b1:BasicButtonWithLabel = new BasicButtonWithLabel();
-		b1.setLabel("Hello 1");
-		b1.setSize(150,40);
-		var b2:BasicButtonWithLabel = new BasicButtonWithLabel();
-		b2.setLabel("Hello 2");
-		b2.setSize(150,40);
-		b2.y = 600;
-		this.sv.addContent(b1);
-		this.sv.addContent(b2);
-		*/
 		for (i in 0...100) {
 			var b:BasicButtonWithLabel = new BasicButtonWithLabel();
 			b.setLabel("my button "+i);
@@ -52,6 +41,9 @@ class Application extends Sprite {
 			b.y = (32)*i;
 			this.sv.addContent(b);
 		}
+		//
+		this.imgView = new ImagePresenter();
+		this.imgView.setSize(this.widthX,this.heightX);
 
 
 		this.render();
@@ -63,6 +55,7 @@ class Application extends Sprite {
 		g.drawRect(0,0,this.widthX,this.heightX);
 		g.endFill();
 		//
+		this.addChild(this.imgView);//added first, so as to get in the background
 		this.addChild(this.sv);
 	}
 
@@ -70,6 +63,7 @@ class Application extends Sprite {
 		//trace('Application : onUserSelect');
 		var bb : BasicButtonWithLabel = cast(e.target,BasicButtonWithLabel);
 		trace('id='+bb.getID());
+		this.imgView.showImageWithID(bb.getID());
 	}
 	
 	

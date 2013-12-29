@@ -107,6 +107,15 @@ class ImagePresenter extends Sprite
 		this.y = yPos;
 	}
 
+	public function showImageWithID(id:Int):Void
+	{
+		this.displayedImageNum += 1;
+		var s:String = "images/screen"+cast(id)+".png";
+		this.getImageAndRender(s);
+
+		this.btnBack.visible=true;
+	}
+
 	public function showNext():Void
 	{
 		this.displayedImageNum += 1;
