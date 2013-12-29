@@ -31,9 +31,9 @@ class Application extends Sprite {
 	}
 	private function construct():Void{
 		this.sv = new ScrollView();
-		this.sv.setSize(300,400);
+		this.sv.setSize(300,this.heightX);
 		this.sv.setScrollSpeed(350);
-		for (i in 0...100) {
+		for (i in 1...101) {
 			var b:BasicButtonWithLabel = new BasicButtonWithLabel();
 			b.setLabel("my button "+i);
 			b.setID(i);
@@ -44,6 +44,7 @@ class Application extends Sprite {
 		//
 		this.imgView = new ImagePresenter();
 		this.imgView.setSize(this.widthX,this.heightX);
+		this.imgView.hideNavigation();
 
 
 		this.render();

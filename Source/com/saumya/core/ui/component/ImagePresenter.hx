@@ -58,7 +58,7 @@ class ImagePresenter extends Sprite
 		this.btnNext = new BasicButtonWithLabel();
 		this.btnBack = new BasicButtonWithLabel();
 		//
-		this.imageHolder.y = 50;
+		//this.imageHolder.y = 50;
 		this.imageHolder.setSize(200,200);
 
 		this.btnBack.setLabel("Back");
@@ -92,6 +92,11 @@ class ImagePresenter extends Sprite
 	{
 		var b:Bitmap = new Bitmap(Assets.getBitmapData (path));
 		this.imageHolder.showImage(b);
+	}
+
+	public function hideNavigation():Void
+	{
+		this.btnNext.visible = this.btnBack.visible = false;
 	}
 
 	public function setSize(newWidth:Float,newHeight:Float):Void
