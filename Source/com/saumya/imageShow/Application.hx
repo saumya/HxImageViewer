@@ -46,7 +46,6 @@ class Application extends Sprite {
 		this.imgView.setSize(this.widthX,this.heightX);
 		this.imgView.hideNavigation();
 
-
 		this.render();
 	}
 	private function render():Void{

@@ -75,9 +75,9 @@ class ImagePresenter extends Sprite
 
 	private function render():Void
 	{
+		this.addChild(this.imageHolder);
 		this.addChild(this.btnBack);
 		this.addChild(this.btnNext);
-		this.addChild(this.imageHolder);
 	}
 
 	private function onBack(e:MouseEvent):Void
@@ -118,7 +118,7 @@ class ImagePresenter extends Sprite
 		var s:String = "images/screen"+cast(id)+".png";
 		this.getImageAndRender(s);
 
-		this.btnBack.visible=true;
+		//this.btnBack.visible=true;
 	}
 
 	public function showNext():Void

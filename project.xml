@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project>
 	
-	<meta title="ImageShow" package="com.saumya.baseUI" version="1.0.0" company="Saumya Inc" />
+	<meta title="ImageShow" package="com.saumya.ImageShow" version="1.0.0" company="Saumya Inc" />
 	<app main="com.saumya.core.ui.Main" path="Export" file="Main" />
 	
 	<!-- <window width="640" height="1136" fps="30" if="iOS" /> --><!-- iphone 5 -->
@@ -10,11 +10,12 @@
 	<!-- <window width="320" height="568" fps="30" if="desktop" />--><!---- iPhone5 /2  -->
 	<window fps="30" />
 	<window width="540" height="600" if="desktop" />
+	<window width="800" height="600" if="flash" />
 	<window width="0" height="0" if="html5" />
 	
 	<window hardware="true" allow-shaders="true" require-shaders="true" depth-buffer="false" stencil-buffer="false" />
 	<window fullscreen="false" resizable="true" borderless="false" vsync="false" />
-	<window orientation="portrait" /><!---- portrait/landscape/auto -->
+	<window orientation="portrait" /><!-- portrait/landscape/auto -->
 	
 	<source path="Source" />
 	
@@ -41,10 +42,11 @@
 	<assets path="Assets/images" rename="images" include="*" exclude="openfl.svg" />
 	
 	<icon path="Assets/images/rayIcon.svg" />
-	
+	<!--
 	<section if="release-sign">
 		<certificate path="path/to/android.keystore" if="android" />
 		<certificate path="path/to/author.p12" if="blackberry" />
 	</section>
-	
+	-->
+
 </project>

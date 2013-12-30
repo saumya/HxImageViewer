@@ -38,10 +38,17 @@ class ScrollView extends Sprite
 	
 	private function initialize() :Void
 	{
+		
+
 		this.widthX = 100;
 		this.heightX = 100;
 		this.contentPane = new Sprite();
+		
 		this.maskClip = new Sprite();
+		#if flash
+			this.addChild(this.maskClip);//why flash needs this on display list!!
+		#end
+
 		this.arrowUP = new Arrow();
 		this.draggableHandle = new BasicButton();
 		this.arrowDN = new Arrow();
@@ -92,6 +99,7 @@ class ScrollView extends Sprite
 			this.scrollIndicatorScroll_Y_To(p);
 		}else{
 			this.contentPane.y = 0;
+			//this.contentPane.y = -30;
 		}
 	}
 	private function contentPaneScroll_Y_To(newValue:Float):Void
@@ -105,6 +113,7 @@ class ScrollView extends Sprite
 	
 	private function construct() :Void
 	{
+		this.contentPane.y= 0;
 		this.drawMask();
 		//
 		this.render();
@@ -128,7 +137,7 @@ class ScrollView extends Sprite
 	{
 		var g:Graphics = this.maskClip.graphics;
 		g.clear();
-		g.beginFill(0xFF0000);
+		g.beginFill(0xFF00FF);
 		g.drawRect(0, 0, this.widthX, this.heightX);
 		g.endFill();
 	}
@@ -150,6 +159,7 @@ class ScrollView extends Sprite
 		this.drawMask();
 		this.arrowUP.x = this.widthX;
 		this.arrowUP.y = (this.arrowUP.height);
+		//this.arrowUP.y = 0;
 		this.arrowUP.rotation = 180;
 		this.arrowDN.x = (this.widthX - this.arrowDN.width);
 		this.arrowDN.y = (this.heightX - this.arrowDN.height);
@@ -164,6 +174,7 @@ class ScrollView extends Sprite
 		//this.addChild(this.arrowUP);
 		//this.addChild(this.arrowDN);
 		
+
 		//this.addChild(this.maskClip);//does not need to be added to the display list
 		this.mask = this.maskClip;
 	}
